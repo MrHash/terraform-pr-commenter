@@ -203,7 +203,7 @@ $CLEAN_PLAN
   # Meaning: Terraform plan failed.
   # Actions: Build PR comment.
   if [[ $EXIT_CODE -eq 1 ]]; then
-    STRIPPED_INPUT=$(echo $INPUT | sed -e '/: Refreshing/d' -e '/: Read/d' -e '/: Still/d' -e '/^::/d')
+    STRIPPED_INPUT=$(echo "$INPUT" | sed -e '/: Refreshing/d' -e '/: Read/d' -e '/: Still/d' -e '/^::/d')
     PR_COMMENT="### Terraform \`plan\` ❌ failed
 <details$DETAILS_STATE><summary>Show Output</summary>
 
